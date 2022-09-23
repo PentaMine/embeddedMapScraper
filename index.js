@@ -11,6 +11,10 @@ class Scraper {
         return `https://maps.google.com/maps?q=${searchTerm}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
     }
 
+    static getIframeSrcNoPin(satellite) {
+        return `https://maps.google.com/maps?q=&t=${satellite ? "k" : ""}&z=&ie=UTF8&iwloc=&output=embed`;
+    }
+
     static #validateZoomInput(zoom) {
         if (!Number(zoom)) {
             throw new Error("zoom must be a number");

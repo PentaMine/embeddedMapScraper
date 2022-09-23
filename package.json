@@ -2,7 +2,7 @@
     "name": "embedded-map-scraper",
     "version": "1.0.1",
     "main": "index.js",
-    "description": "Removes all spaces from a string",
+    "description": "Gives you a url to use inside of an iframe to generate a embedded map on your website without using google's api",
     "license": "MIT",
     "repository": "PentaMine/embeddedMapScraper",
     "keywords": [

@@ -1,24 +1,4 @@
-
-function getIframeSrcCoords(lat, lng, zoom, satellite) {
-    validateZoomInput(zoom);
-    validateCoords(lat, lng);
-    return `https://maps.google.com/maps?q=${lat.toFixed(6)}%20${lng.toFixed(6)}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
-}
-
-function getIframeSrcSearch(searchTerm, zoom, satellite) {
-    searchTerm = searchTerm.replaceAll(" ", "%20");
-    validateZoomInput(zoom);
-    return `https://maps.google.com/maps?q=${searchTerm}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
-}
-
-function getIframeSrcNoPin(satellite) {
-    return `https://maps.google.com/maps?q=&t=${satellite ? "k" : ""}&z=&ie=UTF8&iwloc=&output=embed`;
-}
-
 function validateZoomInput(zoom) {
-    if (!Number(zoom)) {
-        throw new Error("zoom must be a number");
-    }
     if (zoom > 19 || zoom < 1) {
         throw new Error("zoom out of range (1 - 19)");
     }
@@ -48,6 +28,20 @@ function validateCoords(lat, lng){
 
 
 
-module.getIframeSrcCoords = getIframeSrcCoords()
-module.getIframeSrcSearch = getIframeSrcSearch()
-module.getIframeSrcNoPin = getIframeSrcNoPin()
+module.exports = {
+    getIframeSrcCoords: (lat, lng, zoom, satellite) => {
+        validateZoomInput(zoom);
+        validateCoords(lat, lng);
+        return `https://maps.google.com/maps?q=${lat.toFixed(6)}%20${lng.toFixed(6)}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+    },
+    
+    getIframeSrcSearch: (searchTerm, zoom, satellite) => {
+        searchTerm = searchTerm.replaceAll(" ", "%20");
+        validateZoomInput(zoom);
+        return `https://maps.google.com/maps?q=${searchTerm}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+    },
+    
+    getIframeSrcNoPin: (satellite) => {
+        return `https://maps.google.com/maps?q=&t=${satellite ? "k" : ""}&z=&ie=UTF8&iwloc=&output=embed`;
+    }
+}

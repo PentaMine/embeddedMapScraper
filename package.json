@@ -1,4 +1,18 @@
 {
     "name": "embedded-map-scraper",
-    "version": "1.0.0"
+    "version": "1.0.1",
+    "main": "index.js",
+    "description": "Removes all spaces from a string",
+    "license": "MIT",
+    "repository": "PentaMine/embeddedMapScraper",
+    "keywords": [
+        "google",
+        "npm",
+        "package",
+        "maps",
+        "embedded map",
+        "scraper",
+        "google maps",
+        "PentaMine"
+      ]
 }

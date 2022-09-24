@@ -1,4 +1,6 @@
 # Embedded map scraper
+![npm](https://img.shields.io/npm/v/embedded-map-scraper?color=red)
+
 a scraper to replace the maps javascript API
 # how to use
 * ## installation

@@ -1,6 +1,6 @@
 {
     "name": "embedded-map-scraper",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "main": "index.js",
     "description": "Gives you a url to use inside of an iframe to generate a embedded map on your website without using google's api",
     "license": "MIT",

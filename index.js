@@ -1,4 +1,13 @@
 function validateZoomInput(zoom) {
+
+    if (isNaN(zoom)) {
+        throw new Error("latitude must not be NaN");
+    }
+
+    if (!Number(zoom)) {
+        throw new Error("latitude must be a number");
+    }
+
     if (zoom > 19 || zoom < 1) {
         throw new Error("zoom out of range (1 - 19)");
     }
@@ -9,6 +18,15 @@ function validateZoomInput(zoom) {
 }
 
 function validateCoords(lat, lng){
+
+    if (isNaN(lat)) {
+        throw new Error("latitude must not be NaN");
+    }
+
+    if (isNaN(lng)) {
+        throw new Error("longitude must not be Nan");
+    }
+
     if (!Number(lat)) {
         throw new Error("latitude must be a number");
     }
@@ -36,12 +54,12 @@ module.exports = {
     },
     
     getIframeSrcSearch: (searchTerm, zoom, satellite) => {
-        searchTerm = searchTerm.replaceAll(" ", "%20");
+        searchTerm = String(searchTerm).replace(" ", "%20");
         validateZoomInput(zoom);
         return `https://maps.google.com/maps?q=${searchTerm}&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
     },
     
-    getIframeSrcNoPin: (satellite) => {
-        return `https://maps.google.com/maps?q=&t=${satellite ? "k" : ""}&z=&ie=UTF8&iwloc=&output=embed`;
+    getIframeSrcNoPin: (satellite, zoom) => {
+        return `https://maps.google.com/maps?q=&t=${satellite ? "k" : ""}&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
     }
 }

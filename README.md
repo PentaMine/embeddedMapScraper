@@ -4,7 +4,7 @@
 a scraper to partially replace the maps javascript API
 
 # How to use
-    * ## installation
+* ## installation
 1. Download the package `npm i embedded-map-scraper`
 * ## Usage
     * ### Importing
